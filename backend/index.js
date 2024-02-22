@@ -1,6 +1,7 @@
 const express = require("express");
 const dotenv = require('dotenv');
 const mongoose = require('mongoose');
+const authRouter = require('./routes/auth');
 const app = express();
 dotenv.config();
 
@@ -13,9 +14,10 @@ const model = mongoose.connect(process.env.MONGO_URL, {
     socketTimeoutMS: 45000 
   });
 
-app.get("/" , (req, res)=> {
-    res.send("Hello World");
-})
+app.use(express.json());
+
+app.use('/api/auth' , authRouter);
+
 app.listen("3000" , (req , res)=>{
     console.log("Server is listening")
 })
