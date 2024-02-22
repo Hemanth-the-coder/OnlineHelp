@@ -9,10 +9,9 @@ const questionSchema = mongoose.Schema({
         type : String,
         required : true
     },
-    ageLimit : {
-        type : Number,
-        min : 6,
-        max : 18
+    userId : {
+        type : String,
+        required : true
     },
     answers : {
         type : Array,
@@ -20,4 +19,4 @@ const questionSchema = mongoose.Schema({
     }
 } , {timestamps : true} , {strict : false})
 
-module.exports = mongoose.model("Question" ,userSchema);
+module.exports = mongoose.model("Question" ,questionSchema);
