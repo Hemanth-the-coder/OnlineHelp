@@ -1,0 +1,5 @@
+.sidebar{
+    height: calc(100vh - 50px);
+    overflow-y: scroll;
+    /* background-color: yellowgreen; */
+}
